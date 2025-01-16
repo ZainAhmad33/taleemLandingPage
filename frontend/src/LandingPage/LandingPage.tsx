@@ -1,13 +1,13 @@
-import { Home, User, Briefcase, FileText } from 'lucide-react'
+import { Home, Mail, Bot, MessageCircle } from 'lucide-react'
 import { HeroSection } from "./HeroSection/HeroSection";
 import { NavBar } from "@/SharedComponents/NavBar/Navbar";
 
 export function LandingPage() {
     const navItems = [
         { name: 'Home', url: '/', icon: Home },
-        { name: 'About', url: '/', icon: User },
-        { name: 'Projects', url: '/', icon: Briefcase },
-        { name: 'Resume', url: '/', icon: FileText }
+        { name: 'About', url: '/', icon: Bot },
+        { name: 'Sign Up', url: '/', icon: Mail },
+        { name: 'Contact', url: '/', icon: MessageCircle }
       ]
     
   return (

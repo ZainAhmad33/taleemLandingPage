@@ -52,9 +52,9 @@ export function NavBar({ items, className }: NavBarProps) {
                 isActive && "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-50",
               )}
             >
-              <span className="hidden md:inline">{item.name}</span>
-              <span className="md:hidden">
-                <Icon size={18} strokeWidth={2.5} />
+              <span className="hidden md:flex"><Icon size={18} strokeWidth={2.5} />&nbsp;&nbsp;{item.name}</span>
+              <span className="md">
+                
               </span>
               {isActive && (
                 <motion.div
