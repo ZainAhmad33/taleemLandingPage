@@ -8,7 +8,7 @@ module.exports = {
     // your paths
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode: "media",
+  darkMode: ["media", "class"],
   theme: {
     extend: {
       container: {
