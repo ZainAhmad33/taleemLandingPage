@@ -36,7 +36,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-white/5 border border-neutral-200 backdrop-blur-lg py-1 px-1 rounded-full shadow-lg dark:bg-neutral-950/5 dark:border-neutral-800">
+      <div className="flex items-center gap-3 bg-white/5 border border-neutral-200 backdrop-blur-lg py-1 px-1 rounded-2xl shadow-lg dark:bg-neutral-950/5 dark:border-neutral-800">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -47,9 +47,9 @@ export function NavBar({ items, className }: NavBarProps) {
               to={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-xl transition-colors",
                 "text-neutral-950/80 hover:text-neutral-900 dark:text-neutral-50/80 dark:hover:text-neutral-50",
-                isActive && "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-50",
+                isActive && "bg-blue-800 text-neutral-50",
               )}
             >
               <span className="hidden md:flex"><Icon size={18} strokeWidth={2.5} />&nbsp;&nbsp;{item.name}</span>
@@ -59,7 +59,7 @@ export function NavBar({ items, className }: NavBarProps) {
               {isActive && (
                 <motion.div
                   layoutId="lamp"
-                  className="absolute inset-0 w-full bg-neutral-900/5 rounded-full -z-10 dark:bg-neutral-50/5"
+                  className="absolute inset-0 w-full bg-neutral-900/5 rounded-xl -z-10 dark:bg-neutral-50/5"
                   initial={false}
                   transition={{
                     type: "spring",
@@ -68,9 +68,9 @@ export function NavBar({ items, className }: NavBarProps) {
                   }}
                 >
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-neutral-900 rounded-t-full dark:bg-neutral-50">
-                    <div className="absolute w-12 h-6 bg-neutral-900/20 rounded-full blur-md -top-2 -left-2 dark:bg-neutral-50/20" />
-                    <div className="absolute w-8 h-6 bg-neutral-900/20 rounded-full blur-md -top-1 dark:bg-neutral-50/20" />
-                    <div className="absolute w-4 h-4 bg-neutral-900/20 rounded-full blur-sm top-0 left-2 dark:bg-neutral-50/20" />
+                    <div className="absolute w-12 h-6 bg-neutral-900/20 rounded-2xl blur-md -top-2 -left-2 dark:bg-neutral-50/20" />
+                    <div className="absolute w-8 h-6 bg-neutral-900/20 rounded-2xl blur-md -top-1 dark:bg-neutral-50/20" />
+                    <div className="absolute w-4 h-4 bg-neutral-900/20 rounded-2xl blur-sm top-0 left-2 dark:bg-neutral-50/20" />
                   </div>
                 </motion.div>
               )}

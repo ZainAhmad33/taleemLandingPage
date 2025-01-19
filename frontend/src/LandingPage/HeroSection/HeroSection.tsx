@@ -24,7 +24,7 @@ export function HeroSection() {
         </div>
         <div className="flex flex-row w-[30%] max-h-min items-center justify-evenly">
         <p className="font-medium font-extralight text-lg dark:text-neutral-200 py-4">Get Notified When We Launch </p>
-        <button className="max-h-min bg-black dark:bg-white text-md rounded-full w-fit text-white dark:text-black px-4 py-2">
+        <button className="max-h-min bg-blue-800 text-md rounded-xl w-fit text-white px-4 py-2">
         Sign Up Now!
         </button>
         </div>
