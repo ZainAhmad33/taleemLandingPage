@@ -25,7 +25,7 @@ function Footer() {
   }, [isDarkMode])
 
   return (
-    <footer className="relative bg-white text-neutral-950 transition-colors duration-300 dark:bg-neutral-950 dark:text-neutral-50">
+    <footer id="footerSection" className="relative bg-transparent text-neutral-950 transition-colors duration-300 dark:text-neutral-50">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
@@ -37,11 +37,11 @@ function Footer() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm rounded-2xl"
+                className="flex h-10 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               />
               <button
                 type="submit"
-                className="absolute right-1 top-1 h-8 w-8 rounded-xl bg-blue-800 text-white transition-transform hover:scale-105"
+                className="absolute right-1 top-1 h-8 w-8 rounded-xl bg-blue-800 text-neutral-50 hover:text-neutral-900 dark:text-neutral-50/80 dark:hover:text-neutral-50 transition-transform hover:scale-105"
               >
                 <Send className="h-4 w-4" style={{transform: 'translateX(-8px)'}}/>
                 <span className="sr-only">Subscribe</span>
@@ -138,7 +138,7 @@ function Footer() {
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 pt-8 text-center md:flex-row">
           <p className="text-sm text-neutral-500 dark:text-neutral-400">
-            © 2024 Your Company. All rights reserved.
+            © 2024 TaleemAI. All rights reserved.
           </p>
           <nav className="flex gap-4 text-sm">
             <a href="#" className="transition-colors hover:text-neutral-900 dark:hover:text-neutral-50">

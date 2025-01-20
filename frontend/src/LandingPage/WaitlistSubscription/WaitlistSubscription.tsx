@@ -12,7 +12,7 @@ export function WaitlistSection({
     description = ""
 }: WaitlistSectionProps){
     return (
-        <div className="relative flex flex-col gap-4 items-center justify-center px-4">
+        <div id="waitlistSection" className="relative flex flex-col gap-4 items-center justify-center px-4">
             {backgroundEffect && <BackgroundEffect />}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-center">
                 {title}
@@ -25,11 +25,11 @@ export function WaitlistSection({
             <div className="flex flex-row w-[100%] align-center justify-center">
                 <input
                     type='email'
-                    className="flex h-10 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-10 w-full rounded-xl border border-neutral-300 dark:border-neutral-700  bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="Enter your email"
                     style={{maxWidth: "350px"}}
                 />&nbsp;&nbsp;
-                <button className="flex flex-row align-center justify-center max-h-min bg-blue-800 text-md rounded-xl w-fit text-white px-4 py-2">
+                <button className="flex flex-row align-center justify-center max-h-min bg-blue-800 text-md rounded-xl w-fit text-neutral-50 hover:text-neutral-900 dark:text-neutral-50/80 dark:hover:text-neutral-50 px-4 py-2">
                     Notify Me &nbsp;<ArrowRight/>
                 </button>
             </div>

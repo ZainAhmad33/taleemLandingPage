@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { scrollToSection } from "@/Utilities"
 
 interface NavItem {
   name: string
@@ -36,7 +37,10 @@ export function NavBar({ items, className }: NavBarProps) {
             <Link
               key={item.name}
               to={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={() =>{
+                setActiveTab(item.name)
+                scrollToSection(item.url)
+              }}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-xl transition-colors",
                 "text-neutral-950/80 hover:text-neutral-900 dark:text-neutral-50/80 dark:hover:text-neutral-50",
