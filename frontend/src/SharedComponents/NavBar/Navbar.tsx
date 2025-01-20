@@ -53,8 +53,8 @@ export function NavBar({ items, className }: NavBarProps) {
               )}
             >
               <span className="hidden md:flex"><Icon size={18} strokeWidth={2.5} />&nbsp;&nbsp;{item.name}</span>
-              <span className="md">
-                
+              <span className="md:hidden">
+                <Icon size={18} strokeWidth={2.5} />
               </span>
               {isActive && (
                 <motion.div

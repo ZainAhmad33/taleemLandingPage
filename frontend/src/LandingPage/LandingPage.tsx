@@ -2,6 +2,7 @@ import { Home, Mail, Bot, MessageCircle, BookOpenCheck, BrainCircuit, BookOpenTe
 import { HeroSection } from "./HeroSection/HeroSection";
 import { NavBar } from "@/SharedComponents/NavBar/Navbar";
 import { FeatureCard, FeatureGrid } from './Feature/FeatureGrid';
+import { Footer } from './Footer/footer-section';
 
 export function LandingPage() {
     const navItems = [
@@ -79,6 +80,8 @@ export function LandingPage() {
         <FeatureCard key={feature.name} {...feature} />
       ))}
     </FeatureGrid>
+    <br/>
+    <Footer/>
     </>
   )
 }
