@@ -41,7 +41,7 @@ export function WaitlistSection({
 function BackgroundEffect() {
     return ( 
       <div
-        className="pointer-events-none absolute -right-16 -top-48"
+        className="pointer-events-none absolute -top-48"
         aria-hidden="true"
       >
         <svg
