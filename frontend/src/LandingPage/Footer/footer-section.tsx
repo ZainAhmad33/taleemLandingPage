@@ -1,20 +1,16 @@
 import * as React from "react"
 import { Button } from "./button"
 import { Input } from "./input"
-import { Label } from "./label"
-import { Switch } from "./switch"
-import { Textarea } from "./textarea"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "./tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react"
 
 function Footer() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true)
-  const [isChatOpen, setIsChatOpen] = React.useState(false)
+  const [isDarkMode] = React.useState(true)
 
   React.useEffect(() => {
     if (isDarkMode) {
