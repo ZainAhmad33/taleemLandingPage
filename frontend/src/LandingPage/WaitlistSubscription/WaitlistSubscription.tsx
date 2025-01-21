@@ -41,14 +41,15 @@ export function WaitlistSection({
 function BackgroundEffect() {
     return ( 
       <div
-        className="pointer-events-none absolute -top-48"
+        className="pointer-events-none absolute w-[100%] h-[100%]" 
         aria-hidden="true"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="856"
-          height="745"
+          width="100%"
+          height="100%"
           fill="none"
+          className="overflow-visible"
         >
           <g filter="url(#ill-a)">
             <path
