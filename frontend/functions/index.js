@@ -18,34 +18,35 @@ const logger = require("firebase-functions/logger");
 //   response.send("Hello from Firebase!");
 // });
 
-admin.initializeApp();
+const functions = require('firebase-functions');
+const nodemailer = require('nodemailer');
 
-// Replace with your SendGrid API Key
-const SENDGRID_API_KEY = "";
-const ADMIN_EMAIL = "musabahmed@gmail.com"; // Email to notify
+// Get credentials from Firebase config
+const email = functions.config().smtp.email;
+const password = functions.config().smtp.password;
 
-sgMail.setApiKey(SENDGRID_API_KEY);
-
-exports.notifyAdmin = functions.https.onCall(async (data, context) => {
-    const { email } = data;
-
-    if (!email) {
-        throw new functions.https.HttpsError("invalid-argument", "Email is required.");
+// Configure transporter
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: email,
+        pass: password
     }
+});
 
-    const msg = {
-        to: ADMIN_EMAIL,
-        from: "noreply@yourdomain.com",
-        subject: "New User Registered",
-        text: `A new user has registered with the email: ${email}`,
-        html: `<p>A new user has registered with the email: <strong>${email}</strong></p>`,
+// Cloud Function to send an email
+exports.sendEmail = functions.https.onRequest((req, res) => {
+    const mailOptions = {
+        from: email,
+        to: 'recipient@example.com',
+        subject: 'Test Email',
+        text: 'This is a test email sent via Firebase with Nodemailer!',
     };
 
-    try {
-        await sgMail.send(msg);
-        return { success: true, message: "Admin notified successfully!" };
-    } catch (error) {
-        console.error("Error sending email:", error);
-        throw new functions.https.HttpsError("internal", "Failed to send email.");
-    }
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return res.status(500).send('Error sending email: ' + error.toString());
+        }
+        res.status(200).send('Email sent: ' + info.response);
+    });
 });

@@ -1,4 +1,6 @@
 import { ArrowRight } from "lucide-react"
+import emailjs from 'emailjs-com';
+import { useState } from "react";
 
 interface WaitlistSectionProps extends React.HTMLAttributes<HTMLElement> {
     title?: string
@@ -11,6 +13,30 @@ export function WaitlistSection({
     backgroundEffect = true,
     description = ""
 }: WaitlistSectionProps){
+    const [email, setEmail] = useState("");
+    const sendEmail = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        if (!email) {
+            alert("Please enter a valid email.");
+            return;
+        }
+
+        const templateParams = {
+            user_email: email,
+            name: email.split("@")[0]
+        };
+
+        emailjs.send('service_qzrut7h', 'template_gb1k4pi', templateParams, 'JPGna-jdv6gFbc6Wm')
+            .then((result) => {
+                console.log('Email sent:', result.text);
+                alert('You have been added to the waitlist!');
+                setEmail(""); // Clearing Input
+            })
+            .catch((error) => {
+                console.error('Error:', error.text);
+                alert('Failed to send email. Please try again.');
+            });
+    };
     return (
         <div id="waitlistSection" className="relative flex flex-col gap-4 items-center justify-center px-4">
             {backgroundEffect && <BackgroundEffect />}
@@ -20,16 +46,20 @@ export function WaitlistSection({
             {
                 description !== "" && <div className="w-[70%] pt-0 text-center font-extralight text-lg dark:text-neutral-200 py-4">
                     {description}
-                </div>
+                </div>  
             }
             <div className="flex flex-row w-[100%] align-center justify-center">
                 <input
                     type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="flex h-10 w-full rounded-xl border border-neutral-300 dark:border-neutral-700  bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="Enter your email"
                     style={{maxWidth: "350px"}}
                 />&nbsp;&nbsp;
-                <button className="flex flex-row align-center justify-center max-h-min bg-blue-800 text-md rounded-xl w-fit text-neutral-50 hover:text-neutral-900 dark:text-neutral-50/80 dark:hover:text-neutral-50 px-4 py-2">
+                <button
+                    onClick={sendEmail} 
+                    className="flex flex-row align-center justify-center max-h-min bg-blue-800 text-md rounded-xl w-fit text-neutral-50 hover:text-neutral-900 dark:text-neutral-50/80 dark:hover:text-neutral-50 px-4 py-2">
                     Notify Me &nbsp;<ArrowRight/>
                 </button>
             </div>
